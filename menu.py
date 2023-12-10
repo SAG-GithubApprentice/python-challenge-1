@@ -52,9 +52,7 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-menu_item_name[]
-item_price[]
-quantity_ordered[]
+
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -146,7 +144,8 @@ while place_order:
                         menu_items = int(menu_items)
                         break
                     else:
-                        menu_items.isdigit(1) 
+                        ### Getting error here when inputting an invalid ITEM quantity###
+                        menu_items.isdigit(i)  
 
 
                     # Add the item name, price, and quantity to the order list
@@ -155,9 +154,14 @@ while place_order:
 
 
                     # Tell the customer that their input isn't valid
-
+                else:
+                    print("""Your quantity input is invalid, please select 
+                          an integer for quantity""")
 
                 # Tell the customer they didn't select a menu option
+            else:
+                print("""Selection inoput is not in menu, 
+                      please select from menu.""")
 
         else:
             # Tell the customer they didn't select a menu option
@@ -171,20 +175,35 @@ while place_order:
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
 
         # 5. Check the customer's input
+        match keep_ordering.lower():
+
+            case 'y':
 
                 # Keep ordering
+                place_order = True
 
                 # Exit the keep ordering question loop
+                break
 
                 # Complete the order
 
                 # Since the customer decided to stop ordering, thank them for
                 # their order
+            case 'n':
+
+                place_order = False
+
+                print("""Thank you for your patronage, 
+                      your order will be out shortly!""")
 
                 # Exit the keep ordering question loop
-
+                break
 
                 # Tell the customer to try again
+            case _:
+
+                print("""I didn't understand your last input, 
+                      please try again""")
 
 
 # Print out the customer's order
