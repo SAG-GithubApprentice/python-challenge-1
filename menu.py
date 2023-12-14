@@ -50,12 +50,12 @@ menu = {
     }
 }
 
-# Set up order list. Order list will store a list of dictionaries for
+# 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
 order_list = []
 
 # Launch the store and present a greeting to the customer
-print("Welcome to the variety food truck.")
+print("Welcome to Sergio's food truck.")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
@@ -117,21 +117,22 @@ while place_order:
                         "Price": value
                     }
                     i += 1
-            # Ask customer to input menu item number
-            item_number = input("Type item number: ")
+            # 2. Ask customer to input menu item number
+            item_number = input("Input item number: ")
 
-            # Check if the customer typed a number
+            # 3. Check if the customer typed a number
             if item_number.isdigit():
                 # Convert the menu selection to an integer
                 item_number = int(item_number)
 
-                # Check if the menu selection is in the menu items
+                # 4. Check if the menu selection is in the menu items
                 if item_number in menu_items.keys():
+                    
                     # Store the item name as a variable
                     selected_item = menu_items[item_number]["Item name"]
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input("How many would you like to order? ")
+                    quantity = input(f"How many {selected_item} do you want to buy? ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit():
@@ -147,11 +148,12 @@ while place_order:
                         "Price": menu_items[item_number]["Price"]
                     })
 
+                else:
                     # Tell the customer that their input isn't valid
                     print("Invalid quantity. Defaulting to 1.")
 
                 # Tell the customer they didn't select a menu option
-                else:
+                #else:
                     print("Invalid item number. Please select a valid item.")
 
             else:
@@ -184,6 +186,7 @@ while place_order:
             print("Thank you for your order!")
             
             place_order = False  
+
             break   # Exit the inner loop 
 
         else:
@@ -191,18 +194,16 @@ while place_order:
             # Tell the customer to try again
             print("Invalid input. Please enter 'Y' for yes or 'N' for no.")
 
-# Continue with the rest of your code if needed
-
 # Print out the customer's order
 print("This is what we are preparing for you.\n")
 
 # Uncomment the following line to check the structure of the order
 # print(order_list)
 
-length = 30
-
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
+
+length = 25
 
 # 6. Loop through the items in the customer's order
 for item in order_list:
@@ -222,13 +223,11 @@ for item in order_list:
     item_spaces = " " * max(0, num_item_spaces) 
 
     # 10. Print the item name, price, and quantity
-    print(f"{item_name} | ${price:.2f} | {quantity}")
+    print(f"{item_name}{item_spaces} | ${price:.2f} | {quantity}")
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 total_price = sum(item["Price"] * item["Quantity"] for item in order_list)
 print("\nTotal Price: ${:.2f}".format(total_price))
-
-   
-
+print("Thank you for your business, please come again!")
