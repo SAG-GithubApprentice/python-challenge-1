@@ -5,6 +5,7 @@ Sergio's Food Truck Ordering System
 
 Welcome to Sergio's Food Truck Ordering System, a simple command-line application for placing food orders. This system allows customers to select items from a diverse menu, including snacks, meals, drinks, and desserts. The order details, such as item name, price, and quantity, are stored and presented to the customer upon completion.
 
+
 Features:
 
 User-Friendly Interface: The system guides customers through the ordering process with clear prompts and menus.
@@ -16,6 +17,7 @@ Dynamic Menu Display: The menu dynamically adjusts to the user's selection, disp
 Order Management: The system maintains an order list, storing item details and quantities for easy reference.
 
 Total Price Calculation: The total price of the order is calculated, considering the quantity of each selected item.
+
 
 How to Use:
 
